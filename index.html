@@ -27,68 +27,61 @@
 </header>
 
 <section>
-    <div class="curr-train-schedule">
-        <table style="width:100%">
-            <h4>Current Train Schedule</h4>
-            <tr>
-                <th>Train Name</th>
-                <th>Destination</th>
-                <th>Frequency(min)</th>
-                <th>Next Arrival</th>
-                <th>Minutes Away</th>
-            </tr>
-            <tr>
-                <td>Trenton Express</td>
-                <td>Trenton</td>
-                <td>25</td>
-                <td>05:35 PM</td>
-                <td>10</td>
-            </tr>
-        </table>
+    <div class="curr-train-schedule row">
+        <div class="col-md-4">
+            <table style="width:100%">
+                <h4>Current Train Schedule</h4>
+                <tr>
+                    <th>Train Name</th>
+                    <th>Destination</th>
+                    <th>Frequency(min)</th>
+                    <th>Next Arrival</th>
+                    <th>Minutes Away</th>
+                </tr>
+                <tbody>
+                </tbody>
+            </table>
+        </div>
+    </div>
 
-        <form>
-            <h4>Add Train</h4>
-            Train Name:<br>
-            <input type="text" name="train-name" value="">
-            <br>
-            Destination:<br>
-            <input type="text" name="destination" value="">
-            <br>
-            First Train Time(HH:mm - military time)<br>
-            <input type="text" name="first-train-time" value="">
-            <br>
-            Frequency (min)<br>
-            <input type="text" name="train-name" value="">
+    <div class="row">
+        <div class="col-md-4">
+            <form role="form">
+                <h4>Add Train</h4>
 
-            <br><br>
-            <input type="submit" value="Submit">
-        </form>
-
+                <div class="form-group">
+                    <label for="trainName-input">Train Name:</label>
+                    <input class="form-control" id="trainName-input" type="text">
+                </div>
+                <div class="form-group">
+                    <label for="destinationName-input">Destination:</label>
+                    <input class="form-control" id="destinationName-input" type="text">
+                </div>
+                <div class="form-group">
+                    <label for="firstTime-input">First Train Time (HH:mm - military time):</label>
+                    <input class="form-control" id="firstTime-input" type="number">
+                </div>
+                <div class="form-group">
+                    <label for="frequency-input">Frequency (minutes)</label>
+                    <input class="form-control" id="frequency-input" type="number">
+                </div>
+                <button class="btn btn-default" id="add-train" type="submit">Submit</button>
+            </form>
+        </div>
 
     </div>
+
 </section>
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+<!--Link to FireBase-->
+<script src="https://www.gstatic.com/firebasejs/4.10.0/firebase.js"></script>
 <!-- Link to Moment.js should go here -->
 <script src="https://cdn.jsdelivr.net/momentjs/2.12.0/moment.min.js"></script>
 <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 <!-- Include all compiled plugins (below), or include individual files as needed -->
-<script src="assets/js/bootstrap.min.js"></script>
-<script type="text/javascript" src="assets/js/giphy.js"></script>
+<script src="js/bootstrap.min.js"></script>
+<script type="text/javascript" src="js/train.js"></script>
 
 
 </body>
