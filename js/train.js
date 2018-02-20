@@ -38,11 +38,21 @@ ref.on("child_added", function(snapshot) {
     var destination = snapshot.val().destination;
     var firstTrainTime = snapshot.val().firstTrainTime;
     var frequency= snapshot.val().frequency;
-    var nextArrival = 25;
-    var minutesAway = 10;
 
-    // Change the HTML to reflec - Add each train's data into the table
+    var nextArrivalConverted = moment(firstTrainTime, "hh:");
+    console.log(nextArrivalConverted);
+    var currentTime = moment();
+    console.log(currentTime);
+    var diffTime = moment().diff(moment(nextArrivalConverted), "minutes");
+    console.log(diffTime);
+    var tRemainder = diffTime % frequency;
+    console.log(tRemainder);
+
+    var minutesAway = frequency - tRemainder;
+    var nextArrival = moment().add(minutesAway, "minutes");
+
+    // Change the HTML to reflect - Add each train's data into the table
     $("#trainTable > tbody").append("<tr><td>" + trainName + "</td><td>" + destination + "</td><td>" +
-        firstTrainTime + "</td><td>" + frequency + "</td><td>" + nextArrival + "</td><td>" + minutesAway + "</td></tr>");
+        frequency + "</td><td>" + moment(nextArrival).format("hh:mm") + "</td><td>" + minutesAway + "</td></tr>");
 });
 
